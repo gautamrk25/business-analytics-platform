@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Lifecycle</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <style>
+        :root {
+            --md-primary: #6200ee;
+            --md-primary-variant: #3700b3;
+            --md-secondary: #03dac6;
+            --md-background: #ffffff;
+            --md-surface: #ffffff;
+            --md-error: #b00020;
+            --md-on-primary: #ffffff;
+            --md-on-secondary: #000000;
+            --md-on-background: #000000;
+            --md-on-surface: #000000;
+            --md-on-error: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--md-on-background);
+            background-color: var(--md-background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--md-primary);
+            margin-bottom: 16px;
+        }
+
+        .subsection-title {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--md-primary);
+            margin-bottom: 14px;
+            margin-top: 24px;
+        }
+
+        .sub-subsection-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--md-primary);
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+
+        .section-text {
+            font-size: 14px;
+            margin-bottom: 24px;
+            color: var(--md-on-surface);
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 16px 0;
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2),
+                       0 4px 5px 0 rgba(0,0,0,0.14),
+                       0 1px 10px 0 rgba(0,0,0,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .lifecycle-list {
+            list-style-type: none;
+            padding-left: 16px;
+        }
+
+        .lifecycle-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .lifecycle-list li::before {
+            content: "•";
+            color: var(--md-primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .challenges-table {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .challenges-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--md-surface);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+
+        .challenges-table th {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            padding: 12px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .challenges-table td {
+            padding: 16px;
+            vertical-align: top;
+            border: 1px solid rgba(0,0,0,0.12);
+        }
+
+        .table-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .table-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .table-list ul {
+            list-style-type: none;
+            padding-left: 16px;
+            margin-top: 8px;
+        }
+
+        .table-list ul li {
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: var(--md-on-surface);
+            opacity: 0.87;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section 1 -->
+        <section class="section">
+            <h1 class="section-title">Machine Learning on Google Cloud</h1>
+            <div class="image-wrapper">
+                <img src="1.png" alt="High-level overview of ML on Google Cloud">
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section">
+            <h2 class="section-title">MLOps: Continuous delivery and automation pipelines in machine learning</h2>
+            <p class="section-text">
+                Real challenge isn't building an ML model, the challenge is building an integrated ML system and to continuously operate it in production.
+            </p>
+            <p class="section-text">
+                MLOps is a set of practices that improves the stability and reliability of your ML systems.
+            </p>
+            <p class="section-text">
+                As shown in the following diagram, only a small fraction of a real-world ML system is composed of the ML code. The required surrounding elements are vast and complex.
+            </p>
+            <div class="image-wrapper">
+                <img src="2.png" alt="MLOps continuous delivery diagram">
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section">
+            <h2 class="section-title">Core Challenges</h2>
+            <div class="challenges-table">
+                <table>
+                    <tr>
+                        <th>Business Outcome and Impact</th>
+                        <th>Data Scientist Experience</th>
+                        <th>Governance and Compliance</th>
+                        <th>Technical Complexity</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul class="table-list">
+                                <li>Lack of visibility into model business impact</li>
+                                <li>Revenue impact from model performance degradation</li>
+                                <li>Need to reduce time-to-market for AI initiatives</li>
+                                <li>Analysis of business impact to cost of ML & AI initiatives</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="table-list">
+                                <li>Complex tooling and infrastructure setup</li>
+                                <li>Need to reduce cycles for experimentation</li>
+                                <li>Access to production-grade compute resources</li>
+                                <li>Difficulty collaborating across teams</li>
+                                <li>Limited visibility into model behavior and performance</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="table-list">
+                                <li>Cost management and resource optimization</li>
+                                <li>Model Governance Requirements:
+                                    <ul>
+                                        <li>Model versioning and lineage tracking</li>
+                                        <li>Model performance monitoring and drift detection</li>
+                                        <li>Model validation and approval workflows</li>
+                                        <li>Model documentation and explainability</li>
+                                        <li>Model bias detection and fairness metrics</li>
+                                    </ul>
+                                </li>
+                                <li>Security and access control requirements</li>
+                                <li>Regulatory compliance (GDPR, CCPA, etc.)</li>
+                                <li>Data privacy and sovereignty</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="table-list">
+                                <li>Infrastructure management across environments</li>
+                                <li>Data pipeline orchestration and monitoring</li>
+                                <li>Development to production deployment gaps</li>
+                                <li>Operational consistency and reproducibility</li>
+                                <li>Scaling compute resources efficiently</li>
+                                <li>Managing dependencies and artifacts</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section">
+            <h3 class="section-title">Onix MLOps Solution</h3>
+            <div class="challenges-table">
+                <table>
+                    <tr>
+                        <th>Business Outcome and Impact</th>
+                        <th>Enhanced Data Scientist Productivity</th>
+                        <th>Enterprise Governance Framework</th>
+                        <th>Technical Infrastructure</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul class="table-list">
+                                <li>Business impact dashboards and reporting</li>
+                                <li>Real-time model performance monitoring with business KPI correlation</li>
+                                <li>Automated model retraining based on performance thresholds</li>
+                                <li>A/B testing infrastructure for model deployment</li>
+                                <li>Rapid model deployment capabilities</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="table-list">
+                                <li>Managed Vertex AI Workbench environments</li>
+                                <li>Integrated development tools and notebooks</li>
+                                <li>Automated ML pipelines and experimentation tracking</li>
+                                <li>Pre-built templates and components</li>
+                                <li>Collaborative workspace with version control</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="table-list">
+                                <li>Cost optimization and resource management</li>
+                                <li>Comprehensive model governance platform:
+                                    <ul>
+                                        <li>Automated model validation and testing</li>
+                                        <li>Model registry with versioning</li>
+                                        <li>Performance monitoring and drift detection</li>
+                                        <li>Explainability tools and bias detection</li>
+                                    </ul>
+                                </li>
+                                <li>Security controls and audit logging</li>
+                                <li>Compliance automation and reporting</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="table-list">
+                                <li>Fully managed MLOps platform on Google Cloud</li>
+                                <li>Automated CI/CD pipelines for model deployment</li>
+                                <li>Integrated data management and feature store</li>
+                                <li>Environment parity between development and production</li>
+                                <li>Scalable compute resource management</li>
+                                <li>Monitoring and observability tools</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <p class="section-text">Here is the blueprint we deploy:</p>
+
+        <div class="image-wrapper">
+            <img src="3.png" alt="Blueprint Architecture">
+        </div>
+        
+        <p class="section-text">
+            This architecture illustrates our comprehensive MLOps solution. The deployment systems, including Service Catalog and Cloud Build, manage resource deployment across both interactive and operational environments. Data is hosted across various services like BigQuery, Cloud Storage, Spanner, and AlloyDB for PostgreSQL.
+        </p>
+        <p class="section-text">
+            The interactive environment enables direct experimentation with data and model development, while the operational environment ensures repeatable, production-ready model building and deployment. Key model services include Vertex AI Feature Store for feature management, Model Garden for accessing pre-built models, and Vertex AI Model Registry for model lifecycle management.
+        </p>
+        <p class="section-text">
+            Artifact storage is handled through Artifact Registry for pipeline containers and Git repositories for component source code, ensuring proper version control and reproducibility of the entire ML system.
+        </p>
+
+        <h3 class="section-title">Platform Personas</h3>
+        <ul class="lifecycle-list">
+            <li><strong>MLOps Engineer Group:</strong> Develops Terraform templates for Service Catalog, providing templates used across multiple models</li>
+            <li><strong>DevOps Engineer Group:</strong> Approves Terraform templates created by MLOps developers</li>
+            <li><strong>Data Scientist Group:</strong> Develops models, pipelines, and containers used by pipelines, typically focused on single model development</li>
+            <li><strong>Data Engineer Group:</strong> Approves the use of artifacts created by the data science group</li>
+        </ul>
+
+        <h3 class="section-title">Organization Structure</h3>
+        <p class="section-text">
+            Projects are organized by the following folder structure:
+        </p>
+        <ul class="lifecycle-list">
+            <li><strong>Common Folder:</strong> Contains infrastructure pipeline and Service Catalog resources</li>
+            <li><strong>Development Folder:</strong> Houses components for interactive AI/ML development</li>
+            <li><strong>Non-Production Folder:</strong> Contains components for testing and evaluation</li>
+            <li><strong>Production Folder:</strong> Manages components for production deployment</li>
+        </ul>
+
+       
+
+        <h4 class="subsection-title">Operations</h4>
+        <h5 class="sub-subsection-title">Interactive Environment</h5>
+        <p class="section-text">
+            The interactive environment enables data exploration and model development while maintaining security. Resources can be deployed through:
+        </p>
+        <ul class="lifecycle-list">
+            <li><strong>Service Catalog:</strong> Pre-configured templates with automated resource deployment</li>
+            <li><strong>Vertex AI Workbench:</strong> For building and committing code artifacts to Git repositories</li>
+        </ul>
+
+        <h5 class="sub-subsection-title">Operational Environment</h5>
+        <p class="section-text">
+            The operational environment manages production and non-production deployments using Git repositories and pipelines. It includes:
+        </p>
+        <ul class="lifecycle-list">
+            <li><strong>Cloud Composer Pipelines:</strong> For workflow orchestration</li>
+            <li><strong>Vertex AI Pipelines:</strong> For ML-specific workflow management</li>
+            <li><strong>Model Promotion:</strong> Systematic process for moving models through environments</li>
+        </ul>
+
+        <h4 class="subsection-title">Cloud Infrastructure</h4>
+        <h5 class="sub-subsection-title">Networking Setup</h5>
+        <ul class="lifecycle-list">
+            <li><strong>Shared VPC Network:</strong> Enterprise foundation blueprint integration</li>
+            <li><strong>Private Service Connect:</strong> Secure access to Google Cloud APIs</li>
+            <li><strong>VPC Service Controls:</strong> Environment protection and data security</li>
+        </ul>
+
+        <h5 class="sub-subsection-title">Cloud Services Integration</h5>
+        <ul class="lifecycle-list">
+            <li><strong>Cloud Logging:</strong> Enterprise foundation blueprint capabilities</li>
+            <li><strong>Cloud Monitoring:</strong> Custom training job metrics and alerts</li>
+            <li><strong>Cloud Storage:</strong> Unstructured data storage</li>
+            <li><strong>BigQuery:</strong> Structured and semi-structured data management</li>
+        </ul>
+
+        <h4 class="subsection-title">Deployment Pipeline Structure</h4>
+        <ul class="lifecycle-list">
+            <li><strong>Infrastructure Pipeline:</strong> Provisions core Google Cloud resources</li>
+            <li><strong>Interactive Pipeline:</strong> Manages Terraform templates for Service Catalog</li>
+            <li><strong>Container Pipeline:</strong> Builds and manages immutable container images</li>
+            <li><strong>Operational Pipeline:</strong> Handles model building, testing, and deployment</li>
+        </ul>
+
+        <h4 class="subsection-title">Monitoring & Logging</h4>
+        <h5 class="sub-subsection-title">Training Metrics</h5>
+        <ul class="lifecycle-list">
+            <li><strong>CPU Utilization:</strong> Per-node training metrics</li>
+            <li><strong>Memory Usage:</strong> Training node memory monitoring</li>
+            <li><strong>Network Performance:</strong> Training job network metrics</li>
+        </ul>
+
+        <h5 class="sub-subsection-title">Model Performance Monitoring</h5>
+        <ul class="lifecycle-list">
+            <li><strong>Predictions per Second:</strong> Model serving performance</li>
+            <li><strong>Model Latency:</strong> Response time tracking</li>
+            <li><strong>Resource Usage:</strong> CPU and memory consumption monitoring</li>
+            <li><strong>Alerting:</strong> Email notifications for training job failures</li>
+        </ul>
+
+        <h4 class="subsection-title">Service Catalog Integration</h4>
+        <p class="section-text">
+            Service Catalog enables controlled resource deployment through:
+        </p>
+        <ul class="lifecycle-list">
+            <li><strong>Template Management:</strong> MLOps engineers create and maintain Terraform templates</li>
+            <li><strong>Automated Deployment:</strong> Cloud Build CI/CD pipeline for template publishing</li>
+            <li><strong>Access Control:</strong> Managed sharing with interactive environment projects</li>
+            <li><strong>Configuration Control:</strong> Template variables for controlled customization</li>
+        </ul>
+
+        <h4 class="subsection-title">Repository Management</h4>
+        <p class="section-text">
+            Pipeline changes are managed through dedicated repositories with strict access controls:
+        </p>
+        <ul class="lifecycle-list">
+            <li><strong>ml-foundation:</strong> Infrastructure Terraform code (MLOps → DevOps)</li>
+            <li><strong>service-catalog:</strong> Service Catalog templates (MLOps → DevOps)</li>
+            <li><strong>artifact-publish:</strong> Pipeline containers (Data Scientist → Data Engineer)</li>
+            <li><strong>machine-learning:</strong> Operational source code (Data Scientist → Data Engineer)</li>
+        </ul>
+
+        <h5 class="sub-subsection-title">Branching Strategy</h5>
+        <p class="section-text">
+            The blueprint uses persistent branching (development, non-production, and production) aligned with corresponding environments.
+        </p>
+
+        <h3 class="section-title">Security Controls</h3>
+        <ul class="lifecycle-list">
+            <li><strong>Interface Layer:</strong> Managed notebooks, Git repositories, and Service Catalog with controlled access</li>
+            <li><strong>Deployment Layer:</strong> Secured pipelines for infrastructure, containers, and model deployment</li>
+            <li><strong>Network Layer:</strong> Private Service Connect, VPC with private IPs, and VPC Service Controls</li>
+            <li><strong>Access Management:</strong> Cloud Identity and IAM for fine-grained access control</li>
+            <li><strong>Encryption Layer:</strong> Cloud KMS, Secret Manager, and default encryption mechanisms</li>
+            <li><strong>Detective Layer:</strong> Security Command Center, IAM Recommender, and monitoring tools</li>
+            <li><strong>Preventative Layer:</strong> Organization Policy Service for action restrictions</li>
+        </ul>
+
+    
+
+    </section>
+</div>
+</body>
+</html>
