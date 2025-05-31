@@ -177,9 +177,21 @@ business-analysis-platform/
 ## API Endpoints
 
 ### Available Endpoints
+
+#### Implemented:
 - `GET /api/v1/health` - Health check
-- `GET /api/v1/blocks` - List available building blocks
+- `GET /api/v1/version` - API version information
+- `GET /api/v1/blocks` - List available building blocks (mock data)
+- `GET /api/v1/blocks/{block_id}` - Get block details
 - `POST /api/v1/blocks/{block_id}/execute` - Execute a building block
+- `GET /api/v1/blocks/{block_id}/metrics` - Get block execution metrics
+
+#### Placeholder (not yet implemented):
+- `GET /api/v1/data` - List datasets
+- `GET /api/v1/analysis` - List analyses
+- `GET /api/v1/templates` - List templates
+
+#### Planned (not yet started):
 - `POST /api/v1/data/upload` - Upload data for analysis
 - `POST /api/v1/analysis/jobs` - Start analysis job
 - `GET /api/v1/analysis/jobs/{job_id}` - Get job status

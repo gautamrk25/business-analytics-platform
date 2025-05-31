@@ -6,8 +6,8 @@ Welcome to the Business Analysis Platform project! This guide will help you get 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/gautamrk25/2025.git
-cd 2025/Onix/Customers/Retail/2025/business-analysis-platform
+git clone https://github.com/gautamrk25/business-analytics-platform.git
+cd business-analytics-platform
 ```
 
 ### 2. Set Up Claude Code

@@ -27,14 +27,26 @@ This document provides essential context for implementing the Business Analysis 
 
 ## Core Files & API Structure
 - `main.py`: FastAPI application entry point with API routes
-- `src/api/`: API route definitions (auth, blocks, data, analysis)
-- `src/models/`: SQLAlchemy database models and Pydantic schemas
-- `src/services/`: Business logic and service layer
-- `src/building_blocks/`: Analysis modules accessible via API
-- `config.yaml`: Configuration for API, database, and analysis settings
-- `ConfigManager`: Central configuration management
-- `BuildingBlock`: Abstract base class for analysis modules
-- `BusinessAnalysisService`: Main orchestrator for analysis workflows
+- `src/api/`: API route definitions (blocks, data, analysis, templates)
+  - `blocks.py`: Building block endpoints (currently using mock data)
+  - `data.py`: Data management endpoints (placeholder)
+  - `analysis.py`: Analysis endpoints (placeholder)
+  - `templates.py`: Template endpoints (placeholder)
+- `src/models/`: Database models and Pydantic schemas
+  - `models.py`: SQLAlchemy ORM models
+  - `schemas.py`: Pydantic request/response models
+  - `database.py`: Database setup and session management
+- `src/building_blocks/`: Analysis modules
+  - `base.py`: Abstract base class for all building blocks
+  - `registry.py`: Registry for managing building blocks
+  - `data/data_validator.py`: Data validation building block
+  - `data/smart_data_profiler.py`: Smart data profiling block
+- `src/agents/`: AI agent implementations
+  - `industry_detective.py`: Industry classification agent
+  - `code_inspector.py`: Code error analysis agent
+- `src/utils/`: Utility modules
+  - `config.py`: ConfigManager for configuration management
+  - `logger.py`: Centralized logging setup
 
 ## Code Style Guidelines
 ### IMPORTANT: Always follow these patterns
