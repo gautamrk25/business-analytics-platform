@@ -1,0 +1,26 @@
+mlops-tracker/
+├── src/
+│   ├── components/
+│   │   ├── Header/
+│   │   ├── ChecklistPanel/
+│   │   ├── ProgressPanel/
+│   │   ├── ImplementationView/
+│   │   ├── CodeEditor/
+│   │   ├── ResourceDetails/
+│   │   └── Notifications/
+│   ├── interfaces/
+│   │   ├── types.ts
+│   │   └── api.ts
+│   ├── services/
+│   │   ├── mockData.ts
+│   │   └── apiClient.ts
+│   ├── store/
+│   │   └── index.ts
+│   ├── styles/
+│   │   └── globals.css
+│   └── utils/
+│       └── helpers.ts
+├── public/
+│   └── assets/
+├── package.json
+└── tsconfig.json 
