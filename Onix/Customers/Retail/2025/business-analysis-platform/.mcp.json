@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "mcp-server-filesystem",
+      "args": ["--access-level", "write", "/Users/gautamkotwal/Documents/Code/Onix/Customers/Retail/2025/business-analysis-platform"],
+      "description": "File system operations with write access to project directory"
+    },
+    "git": {
+      "command": "mcp-server-git",
+      "args": ["--repository", "."],
+      "description": "Git operations for version control"
+    },
+    "github": {
+      "command": "mcp-server-github",
+      "args": ["--token", "${GITHUB_TOKEN}"],
+      "description": "GitHub API integration for issues and PRs"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "allowedTools": [
+    "Edit",
+    "MultiEdit",
+    "Write",
+    "Read",
+    "LS",
+    "Glob",
+    "Grep",
+    "Bash(python:*)",
+    "Bash(pip:*)",
+    "Bash(streamlit:*)",
+    "Bash(git status)",
+    "Bash(git diff)",
+    "Bash(git add:*)",
+    "Bash(git commit:*)",
+    "Bash(git log:*)"
+  ],
+  "customCommands": {
+    "run-analysis": "Run business analysis on a dataset",
+    "create-building-block": "Create a new building block component",
+    "test-and-validate": "Run tests and validate code quality"
+  },
+  "projectSettings": {
+    "pythonVersion": "3.9+",
+    "virtualEnvPath": "venv",
+    "mainEntryPoint": "business_analysis_platform.py",
+    "testDirectory": "tests"
+  }
+}
