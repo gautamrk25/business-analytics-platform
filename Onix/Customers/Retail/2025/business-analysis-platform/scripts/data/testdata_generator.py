@@ -159,9 +159,12 @@ df['marketing_roi'] = (df['daily_sales'] - df['marketing_spend']) / df['marketin
 df['inventory_turnover'] = df['units_sold'] / (df['inventory_level'].fillna(df['inventory_level'].mean()) + 1)
 
 # Save to CSV
-df.to_csv('business_analysis_test_data.csv', index=False)
+import os
+output_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 
+                          'data', 'samples', 'business_analysis_test_data.csv')
+df.to_csv(output_path, index=False)
 
-print("Test CSV file 'business_analysis_test_data.csv' created successfully!")
+print(f"Test CSV file created successfully at: {output_path}")
 print(f"Dataset contains {len(df)} rows and {len(df.columns)} columns")
 print("\nColumns:", list(df.columns))
 print(f"\nDate range: {df['date'].min()} to {df['date'].max()}")

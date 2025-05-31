@@ -1,0 +1,26 @@
+STEP 3: Update Documentation
+============================================================
+
+Copy and paste this entire prompt into Claude Opus 4:
+------------------------------------------------------------
+
+The code has been successfully pushed to https://github.com/gautamrk25/business-analytics-platform.git
+
+Now I need to update all documentation files that reference the old repository URL.
+
+Please:
+1. Search for all markdown files in the current directory and subdirectories
+2. In each markdown file, replace:
+   - Old URL: https://github.com/gautamrk25/2025.git
+   - New URL: https://github.com/gautamrk25/business-analytics-platform.git
+3. Also update any path references:
+   - Old: "cd 2025/Onix/Customers/Retail/2025/business-analysis-platform"
+   - New: "cd business-analytics-platform"
+4. Show me which files were updated and what changes were made
+5. After updating all files, create a git commit with the message: "Update repository URLs after migration"
+6. Push the commit to the new repository
+
+Please show me each file that gets updated and confirm the changes.
+
+------------------------------------------------------------
+Generated at: 2025-05-31 14:18:56

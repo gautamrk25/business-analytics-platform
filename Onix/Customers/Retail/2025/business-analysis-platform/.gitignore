@@ -45,8 +45,8 @@ htmlcov/
 .hypothesis/
 
 # Logs
-logs/
-*.log
+logs/*.log
+!logs/.gitkeep
 
 # OS
 .DS_Store
@@ -56,6 +56,7 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+!.env.example
 
 # Database
 *.db
@@ -85,8 +86,9 @@ config.override.yaml
 # User-specific files
 personal_notes.md
 scratch.py
-debug_*.py
 test_data_*
+experiments/
+local_tests/
 
 # API keys and secrets
 secrets/

@@ -5,8 +5,8 @@ from typing import TYPE_CHECKING, Any, Dict
 import pytest
 from unittest.mock import MagicMock
 
-from goob_ai.demo.example_demo import ExampleBusinessDemo
-from goob_ai.orchestrator import BusinessAnalysisOrchestrator
+from src.goob_ai.demo.example_demo import ExampleBusinessDemo
+# from src.goob_ai.orchestrator import BusinessAnalysisOrchestrator  # This module doesn't exist yet
 
 if TYPE_CHECKING:
     from _pytest.capture import CaptureFixture

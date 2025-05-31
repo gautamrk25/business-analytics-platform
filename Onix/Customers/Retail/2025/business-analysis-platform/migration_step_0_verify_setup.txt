@@ -1,0 +1,21 @@
+STEP 0: Verify Setup
+============================================================
+
+Copy and paste this entire prompt into Claude Opus 4:
+------------------------------------------------------------
+
+I'm preparing to migrate my repository. Please help me verify my current setup.
+
+Current directory: /Users/gautamkotwal/Documents/Code/Onix/Customers/Retail/2025/business-analysis-platform
+Expected files: README.md, main.py, requirements.txt
+
+Please:
+1. Verify I'm in the correct directory by checking for key files
+2. Check my current git remote with: git remote -v
+3. Confirm the current remote is: https://github.com/gautamrk25/2025.git
+4. Check if there are any uncommitted changes with: git status
+
+Let me know if everything looks ready for migration.
+
+------------------------------------------------------------
+Generated at: 2025-05-31 14:18:56

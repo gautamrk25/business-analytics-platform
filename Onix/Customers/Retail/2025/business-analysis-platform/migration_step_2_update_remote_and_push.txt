@@ -1,0 +1,28 @@
+STEP 2: Update Remote and Push
+============================================================
+
+Copy and paste this entire prompt into Claude Opus 4:
+------------------------------------------------------------
+
+I have successfully created a new empty GitHub repository at https://github.com/gautamrk25/business-analytics-platform.git
+
+I need to migrate my existing code from https://github.com/gautamrk25/2025.git to this new repository.
+
+Current situation:
+- Current directory: /Users/gautamkotwal/Documents/Code/Onix/Customers/Retail/2025/business-analysis-platform
+- Old remote URL: https://github.com/gautamrk25/2025.git
+- New remote URL: https://github.com/gautamrk25/business-analytics-platform.git
+- All changes are committed and pushed to the old repository
+
+Please execute these git commands for me:
+1. First, show current remote: git remote -v
+2. Remove the old remote: git remote remove origin
+3. Add the new remote: git remote add origin https://github.com/gautamrk25/business-analytics-platform.git
+4. Verify the new remote: git remote -v
+5. Push main branch: git push -u origin main
+6. Push all tags: git push --tags
+
+Show me the output of each command as you execute them.
+
+------------------------------------------------------------
+Generated at: 2025-05-31 14:18:56

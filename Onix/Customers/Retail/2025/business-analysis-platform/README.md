@@ -23,23 +23,23 @@ The Business Analysis Platform uses a building block architecture inspired by AW
 
 ### For Developers
 
-1. **[CLAUDE.md](CLAUDE.md)** - Development context and guidelines
-2. **[TDD_CHECKLIST.md](TDD_CHECKLIST.md)** - Test-driven development workflow
-3. **[IMPLEMENTATION_SEQUENCE.md](IMPLEMENTATION_SEQUENCE.md)** - Build order and dependencies
-4. **[ERROR_RECOVERY.md](ERROR_RECOVERY.md)** - Troubleshooting guide
+1. **[CLAUDE.md](docs/development/CLAUDE.md)** - Development context and guidelines
+2. **[TDD_CHECKLIST.md](docs/development/TDD_CHECKLIST.md)** - Test-driven development workflow
+3. **[IMPLEMENTATION_SEQUENCE.md](docs/project/IMPLEMENTATION_SEQUENCE.md)** - Build order and dependencies
+4. **[ERROR_RECOVERY.md](docs/development/ERROR_RECOVERY.md)** - Troubleshooting guide
 
 ### For Project Managers
 
-1. **[QUICK_START.md](QUICK_START.md)** - Instructions for working with Claude
-2. **[PRE_DEVELOPMENT_CHECKLIST.md](PRE_DEVELOPMENT_CHECKLIST.md)** - Setup verification
-3. **[implementation_recommendations.md](implementation_recommendations.md)** - Feature cohorts
+1. **[QUICK_REFERENCE.md](docs/development/QUICK_REFERENCE.md)** - Quick reference guide
+2. **[PROJECT_STATUS.md](docs/project/PROJECT_STATUS.md)** - Current project status
+3. **[implementation_recommendations_backend_api.md](docs/architecture/implementation_recommendations_backend_api.md)** - Feature cohorts
 
 ### Technical Documentation
 
-1. **[business_analysis_platform_documentation.md](business_analysis_platform_documentation.md)** - Complete technical reference
-2. **[building_block_system_design.md](building_block_system_design.md)** - Architecture overview
-3. **[building_block_system_design_v2.md](building_block_system_design_v2.md)** - Enhanced design
-4. **[realistic_feature_implementation_guide.md](realistic_feature_implementation_guide.md)** - Implementation examples
+1. **[backend_api_design.md](docs/architecture/backend_api_design.md)** - Backend API design
+2. **[building_block_system_design_backend_api.md](docs/architecture/building_block_system_design_backend_api.md)** - Architecture overview
+3. **[AI_AGENTS_IMPLEMENTATION.md](docs/architecture/AI_AGENTS_IMPLEMENTATION.md)** - AI agents architecture
+4. **[BUSINESS_VALUE_PROPOSITION.md](docs/project/BUSINESS_VALUE_PROPOSITION.md)** - Business value and use cases
 
 ## Quick Start
 
@@ -84,13 +84,13 @@ python -m pytest tests/test_building_blocks/test_example_block.py -v
 
 ### Starting Development
 
-**For new collaborators**: Start with [COLLABORATOR_GUIDE.md](COLLABORATOR_GUIDE.md)
+**For new collaborators**: Start with the documentation in the docs/ directory
 
-1. Read [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md) - **MANDATORY**
-2. Check [PROJECT_STATUS.md](PROJECT_STATUS.md) for current tasks
-3. Follow [TDD_CHECKLIST.md](TDD_CHECKLIST.md) for each component
-4. Use [CLAUDE.md](CLAUDE.md) for coding patterns
-5. Refer to [ERROR_RECOVERY.md](ERROR_RECOVERY.md) when issues arise
+1. Read [DEVELOPMENT_WORKFLOW.md](docs/development/DEVELOPMENT_WORKFLOW.md) - **MANDATORY**
+2. Check [PROJECT_STATUS.md](docs/project/PROJECT_STATUS.md) for current tasks
+3. Follow [TDD_CHECKLIST.md](docs/development/TDD_CHECKLIST.md) for each component
+4. Use [CLAUDE.md](docs/development/CLAUDE.md) for coding patterns
+5. Refer to [ERROR_RECOVERY.md](docs/development/ERROR_RECOVERY.md) when issues arise
 
 ## Architecture
 
@@ -144,7 +144,16 @@ business-analysis-platform/
 │   ├── services/            # Business logic layer
 │   └── utils/               # Utilities (config, logger)
 ├── tests/                   # Comprehensive test suite
-├── config.yaml             # Configuration file
+├── data/                   # Data files and samples
+│   └── samples/            # Sample data files
+├── scripts/                # Utility scripts
+│   ├── debug/              # Debug scripts
+│   └── data/               # Data generation scripts
+├── docs/                   # Documentation
+│   ├── development/        # Development guides
+│   ├── architecture/       # Architecture docs
+│   └── project/            # Project management
+├── .env.example            # Environment variables template
 ├── requirements.txt        # Python dependencies
 └── README.md              # This file
 ```
@@ -189,16 +198,16 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 **Important**: Use Claude Code (Claude Opus 4) for ALL development
 
-1. Read [COLLABORATOR_GUIDE.md](COLLABORATOR_GUIDE.md) first
-2. Follow [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md) exactly
-3. Check [PROJECT_STATUS.md](PROJECT_STATUS.md) for current tasks
-4. Use [TDD_CHECKLIST.md](TDD_CHECKLIST.md) for testing
+1. Read the documentation in [docs/](docs/) first
+2. Follow [DEVELOPMENT_WORKFLOW.md](docs/development/DEVELOPMENT_WORKFLOW.md) exactly
+3. Check [PROJECT_STATUS.md](docs/project/PROJECT_STATUS.md) for current tasks
+4. Use [TDD_CHECKLIST.md](docs/development/TDD_CHECKLIST.md) for testing
 5. Update documentation as you code
 
 ## Support
 
 For issues or questions:
-1. Check [ERROR_RECOVERY.md](ERROR_RECOVERY.md)
+1. Check [ERROR_RECOVERY.md](docs/development/ERROR_RECOVERY.md)
 2. Review relevant documentation
 3. Create an issue with details
 

@@ -1,0 +1,20 @@
+STEP 1: Create Repository
+============================================================
+
+Copy and paste this entire prompt into Claude Opus 4:
+------------------------------------------------------------
+
+I need detailed instructions to create a new GitHub repository. I will create it manually through the GitHub web interface.
+
+Please provide step-by-step instructions with exact settings:
+- Repository name: business-analytics-platform
+- Description: "AI-driven business intelligence platform with modular analysis capabilities"
+- Visibility: Public
+- Initialize: DO NOT add README, .gitignore, or license
+
+After I create it, I'll have an empty repository at: https://github.com/gautamrk25/business-analytics-platform.git
+
+Please list the exact steps I should follow on github.com/new
+
+------------------------------------------------------------
+Generated at: 2025-05-31 14:18:56
