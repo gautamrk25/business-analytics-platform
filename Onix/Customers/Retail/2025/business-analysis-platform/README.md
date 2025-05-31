@@ -1,6 +1,8 @@
-# Business Analysis Platform
+# Business Analysis Platform - Backend API
 
-A comprehensive Python application that combines AI-driven business intelligence with modular architecture for extensible analysis capabilities.
+**Note: This repository contains the FastAPI backend service only. The React frontend will be implemented separately.**
+
+A comprehensive REST API that combines AI-driven business intelligence with modular architecture for extensible analysis capabilities. Built with FastAPI, this backend service provides endpoints for data analysis, AI agent orchestration, and real-time processing.
 
 ## Overview
 
@@ -8,12 +10,14 @@ The Business Analysis Platform uses a building block architecture inspired by AW
 
 ### Key Features
 
-- **Modular Building Blocks**: Self-contained analysis components
+- **RESTful API**: FastAPI-based backend service with OpenAPI documentation
+- **Modular Building Blocks**: Self-contained analysis components accessible via API
+- **AI Agents System**: Intelligent agents for industry detection, error recovery, and analysis
 - **Industry Intelligence**: Built-in knowledge for retail, healthcare, finance
-- **Self-Healing Data**: Automatic data quality fixes
-- **Template System**: Pre-configured analysis workflows
-- **AI Integration**: Powered by advanced language models
-- **Extensible Architecture**: Easy to add new capabilities
+- **Self-Healing Data**: Automatic data quality fixes with learning capabilities
+- **Template System**: Pre-configured analysis workflows via API
+- **Real-time Updates**: WebSocket support for live analysis progress
+- **Extensible Architecture**: Easy to add new analysis capabilities
 
 ## Documentation Structure
 
@@ -80,30 +84,42 @@ python -m pytest tests/test_building_blocks/test_example_block.py -v
 
 ### Starting Development
 
-1. Read [PRE_DEVELOPMENT_CHECKLIST.md](PRE_DEVELOPMENT_CHECKLIST.md)
-2. Follow [IMPLEMENTATION_SEQUENCE.md](IMPLEMENTATION_SEQUENCE.md)
-3. Use [TDD_CHECKLIST.md](TDD_CHECKLIST.md) for each component
-4. Refer to [ERROR_RECOVERY.md](ERROR_RECOVERY.md) when issues arise
+**For new collaborators**: Start with [COLLABORATOR_GUIDE.md](COLLABORATOR_GUIDE.md)
+
+1. Read [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md) - **MANDATORY**
+2. Check [PROJECT_STATUS.md](PROJECT_STATUS.md) for current tasks
+3. Follow [TDD_CHECKLIST.md](TDD_CHECKLIST.md) for each component
+4. Use [CLAUDE.md](CLAUDE.md) for coding patterns
+5. Refer to [ERROR_RECOVERY.md](ERROR_RECOVERY.md) when issues arise
 
 ## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        Streamlit UI                             │
+│                    React Frontend (Separate Repo)               │
 ├─────────────────────────────────────────────────────────────────┤
-│                    Business Analysis Agent                      │
+│                        REST API / WebSocket                     │
+├─────────────────────────────────────────────────────────────────┤
+│                      FastAPI Backend                            │
 ├─────────────────┬─────────────────┬─────────────────────────────┤
-│  Template       │   Building      │    Learning History         │
-│  Manager        │   Block         │    Manager                  │
-│                 │   Registry      │                             │
+│   AI Agents     │   API Routes    │    WebSocket Handlers       │
+│  Orchestrator   │  (/blocks,      │    (Real-time updates)      │
+│                 │   /analysis,     │                             │
+│                 │   /data)         │                             │
 ├─────────────────┴─────────────────┴─────────────────────────────┤
+│                        AI Agents System                         │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐             │
+│  │  Industry   │  │    Code     │  │   Memory    │             │
+│  │  Detective  │  │  Inspector  │  │   Keeper    │             │
+│  └─────────────┘  └─────────────┘  └─────────────┘             │
+├─────────────────────────────────────────────────────────────────┤
 │                     Building Blocks                             │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐             │
 │  │    Data     │  │  Analysis   │  │Visualization│             │
 │  │  Validator  │  │   Blocks    │  │   Blocks    │             │
 │  └─────────────┘  └─────────────┘  └─────────────┘             │
 ├─────────────────────────────────────────────────────────────────┤
-│                    Configuration Manager                        │
+│          Database (SQLAlchemy) / Configuration Manager          │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -111,19 +127,26 @@ python -m pytest tests/test_building_blocks/test_example_block.py -v
 
 ```
 business-analysis-platform/
-├── src/                      # Source code
-│   ├── building_blocks/      # Building block implementations
-│   ├── templates/            # Template definitions
-│   ├── utils/                # Utility functions
-│   └── ui/                   # User interface
-├── tests/                    # Test suite
-│   ├── test_building_blocks/ # Building block tests
-│   ├── test_templates/       # Template tests
-│   └── test_integration/     # Integration tests
-├── docs/                     # Additional documentation
-├── config.yaml              # Configuration file
-├── requirements.txt         # Python dependencies
-└── README.md               # This file
+├── main.py                  # FastAPI application entry
+├── src/                     # Source code
+│   ├── api/                 # API route definitions
+│   │   ├── auth.py         # Authentication endpoints
+│   │   ├── blocks.py       # Building block endpoints
+│   │   ├── data.py         # Data management endpoints
+│   │   └── analysis.py     # Analysis orchestration
+│   ├── agents/              # AI agent implementations
+│   │   ├── industry_detective.py
+│   │   └── code_inspector.py
+│   ├── building_blocks/     # Analysis components
+│   │   ├── data/           # Data processing blocks
+│   │   └── analysis/       # Analysis blocks
+│   ├── models/              # Database models & schemas
+│   ├── services/            # Business logic layer
+│   └── utils/               # Utilities (config, logger)
+├── tests/                   # Comprehensive test suite
+├── config.yaml             # Configuration file
+├── requirements.txt        # Python dependencies
+└── README.md              # This file
 ```
 
 ## Development Workflow
@@ -142,12 +165,35 @@ business-analysis-platform/
 - **Tests must pass** before proceeding
 - **Fix immediately** when tests fail
 
+## API Endpoints
+
+### Available Endpoints
+- `GET /api/v1/health` - Health check
+- `GET /api/v1/blocks` - List available building blocks
+- `POST /api/v1/blocks/{block_id}/execute` - Execute a building block
+- `POST /api/v1/data/upload` - Upload data for analysis
+- `POST /api/v1/analysis/jobs` - Start analysis job
+- `GET /api/v1/analysis/jobs/{job_id}` - Get job status
+- `WS /ws/{job_id}` - WebSocket for real-time updates
+
+### Running the API
+```bash
+# Development
+uvicorn main:app --reload
+
+# Production
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
 ## Contributing
 
-1. Follow the [TDD_CHECKLIST.md](TDD_CHECKLIST.md)
-2. Implement in order per [IMPLEMENTATION_SEQUENCE.md](IMPLEMENTATION_SEQUENCE.md)
-3. Maintain code quality standards
-4. Update documentation as needed
+**Important**: Use Claude Code (Claude Opus 4) for ALL development
+
+1. Read [COLLABORATOR_GUIDE.md](COLLABORATOR_GUIDE.md) first
+2. Follow [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md) exactly
+3. Check [PROJECT_STATUS.md](PROJECT_STATUS.md) for current tasks
+4. Use [TDD_CHECKLIST.md](TDD_CHECKLIST.md) for testing
+5. Update documentation as you code
 
 ## Support
 
